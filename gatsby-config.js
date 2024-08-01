@@ -4,7 +4,10 @@
 module.exports = {
   siteMetadata: {
     title: `My First Gatsby Site`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://main--gatsby-site-playground.netlify.app/`,
   },
-  plugins: [],
+  plugins: [
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+  ],
 }
