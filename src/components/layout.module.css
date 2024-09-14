@@ -1,9 +1,12 @@
 .container {
-    margin: auto;
-    max-width: 500px;
+    max-width: 1720px;
+    padding-right: 20px;
+    padding-left: 20px;
     font-family: sans-serif;
   }
 .heading {
+    margin: auto;
+    text-align: center;
     color: rebeccapurple;
   }
 .nav-links {
@@ -16,4 +19,13 @@
   }
 .nav-link-text {
     color: black;
+  }
+.site-title {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 32px;
+    font-size: 3rem;
+    color: gray;
+    font-weight: 700;
+    margin: 3rem 0;
   }
