@@ -1,8 +1,9 @@
-// Step 1: Import React
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const BlogPage = ({ data }) => {
     return (
@@ -25,7 +26,7 @@ const BlogPage = ({ data }) => {
 
 export const query = graphql `
   query {
-  allMdx(sort: {frontmatter: {date: ASC}}) {
+  allMdx(sort: {frontmatter: {date: DESC}}) {
     nodes {
       frontmatter {
         date(formatString: "D MMMM YYYY")

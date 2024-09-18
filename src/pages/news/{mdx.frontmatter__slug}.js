@@ -3,6 +3,8 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import Seo from '../../components/seo'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 const BlogPost = ({ data, children }) => {
     return (
       <Layout pageTitle={data.mdx.frontmatter.title}>

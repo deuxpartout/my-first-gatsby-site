@@ -29,3 +29,9 @@
     font-weight: 700;
     margin: 3rem 0;
   }
+
+.blocco_A {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #F4F0EC;
+}
