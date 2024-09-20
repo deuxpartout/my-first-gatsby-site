@@ -1,85 +1,54 @@
 import * as React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import {
+  heading,
+  navLinks,
+  navLinkItem,
+  navLinkText,
+  siteTitle
+} from './layout.module.css'
 
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Card from 'react-bootstrap/Card'
-import CardGroup from 'react-bootstrap/CardGroup'
 
-import { blocco_A } from './layout.module.css'
-import { useStaticQuery, graphql } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-const Layout = () => {
+const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
-    siteMetadata {
-      title
-      siteUrl
-      description
+        siteMetadata {
+          title
+        }
+      }
     }
-  }
-}
   `)
 
   return (
     <Container fluid>
-      <header>
-
-      </header>
+      <header className={siteTitle}>{data.site.siteMetadata.title}</header>
+      <nav>
+        <ul className={navLinks}>
+          <li className={navLinkItem}>
+            <Link to="/" className={navLinkText}>
+            Home
+            </Link>
+          </li>
+          <li className={navLinkItem}>
+            <Link to="/about" className={navLinkText}>
+            About
+            </Link>
+          </li>
+          <li className={navLinkItem}>
+            <Link to="/blog" className={navLinkText}>
+            Blog
+            </Link>
+          </li>
+        </ul>
+      </nav>
       <main>
-        <Row className={blocco_A}>
-          <Col>
-          <CardGroup>
-      <Card>
-        <Card.Img variant="top" src="https://www.pugliasounds.it/wp-content/uploads/2024/07/Cristiana-Verardo-2.webp" />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">News</small>
-        </Card.Footer>
-      </Card>
-      <Card>
-        <Card.Img variant="top" src="https://www.pugliasounds.it/wp-content/uploads/2024/07/Cristiana-Verardo-2.webp" />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This card has supporting text below as a natural lead-in to
-            additional content.{' '}
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
-      <Card>
-        <Card.Img variant="top" src="https://www.pugliasounds.it/wp-content/uploads/2024/07/Cristiana-Verardo-2.webp" />
-        <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This card has even longer content than the
-            first to show that equal height action.
-          </Card.Text>
-        </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
-      </Card>
-    </CardGroup>
-          </Col>
-        </Row>
+        <h1 className={heading}>{pageTitle}</h1>
+        {children}
       </main>
-      <footer>
-        
-      </footer>
     </Container>
   )
 }
