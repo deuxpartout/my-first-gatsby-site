@@ -27,7 +27,7 @@ const BlogPage = ({ data }) => {
             </Card.Title>
           <Card.Text>
             {node.excerpt}
-            <p>Posted: {node.frontmatter.date}</p>
+            <p>{node.frontmatter.date}</p>
           </Card.Text>
           </Card.Body>
           </article>
@@ -42,7 +42,7 @@ const BlogPage = ({ data }) => {
 
 export const query = graphql`
   query {
-  allMdx(sort: {frontmatter: {date: DESC}}, limit: 3) {
+  allMdx(sort: {frontmatter: {date: DESC}}, limit: 4) {
     nodes {
       frontmatter {
         date(formatString: "MMMM D, YYYY")
